@@ -1,65 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@style/InputTheme"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
     tools:context=".InputActivity">
 
     <TextView
         android:id="@+id/input_activity_label"
         style="@style/activity_label"
-        android:text="@string/input_activity" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_marginStart="@dimen/gap2"
+        android:layout_marginTop="@dimen/gap2"
+        android:text="@string/input_activity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap1"
         android:text="@string/select_message"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/urgent_check_box"
+        app:layout_constraintVertical_chainStyle="packed"/>
 
     <CheckBox
         android:id="@+id/urgent_check_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/gap0"
+        android:layout_marginTop="@dimen/gap1"
         android:checked="true"
-        android:text="@string/urgent" />
+        android:text="@string/urgent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintBottom_toTopOf="@id/message_group"/>
 
     <RadioGroup
         android:id="@+id/message_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/gap0"
-        android:checkedButton="@+id/mew_button">
+        android:layout_marginTop="@dimen/gap1"
+        android:checkedButton="@+id/mew_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/urgent_check_box"
+        app:layout_constraintBottom_toTopOf="@id/send_button">
 
         <RadioButton
             android:id="@+id/purr_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/cat_purr" />
 
         <RadioButton
             android:id="@+id/mew_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/cat_mew" />
 
         <RadioButton
             android:id="@+id/hiss_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/cat_hiss" />
 
     </RadioGroup>
@@ -70,15 +78,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/gap2"
-        android:text="@string/send" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2" />
+        android:text="@string/send"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/message_group"/>
 
     <TextView
         android:id="@+id/sheridan"
+        style="@style/sheridan_label"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/sheridan"
-        style="@style/sheridan_label" />
-</LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
