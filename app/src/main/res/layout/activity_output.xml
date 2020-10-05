@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="envelope"
+            type="ca.tetervak.kittymessage1.model.Envelope"/>
     </data>
 
     <LinearLayout
@@ -36,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/gap0"
-            android:text="@string/undefined"
+            android:text="@{envelope.isUrgent ? @string/urgent : @string/not_urgent}"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
@@ -44,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/gap0"
-            android:text="@string/undefined"
+            android:text="@{envelope.textMessage}"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <Button

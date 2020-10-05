@@ -3,7 +3,9 @@ package ca.tetervak.kittymessage1
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import ca.tetervak.kittymessage1.OutputActivity.Companion.ENVELOPE
 import ca.tetervak.kittymessage1.databinding.ActivityInputBinding
+import ca.tetervak.kittymessage1.model.Envelope
 
 class InputActivity : AppCompatActivity() {
 
@@ -30,8 +32,7 @@ class InputActivity : AppCompatActivity() {
         }
 
         val intent = Intent(this, OutputActivity::class.java).apply {
-            putExtra(OutputActivity.IS_URGENT_KEY, urgent)
-            putExtra(OutputActivity.MESSAGE_TEXT_KEY, message)
+            putExtra(ENVELOPE, Envelope(urgent, message))
         }
         startActivity(intent)
     }
